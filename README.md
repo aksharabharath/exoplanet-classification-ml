@@ -146,6 +146,24 @@ These findings are consistent with astrophysical theories that link metallicity 
 
 ---
 
+## Error Analysis
+
+Although the models achieved reasonable overall accuracy, performance was significantly weaker on the minority class (gas giants), particularly in terms of recall.
+
+The main source of error is the model’s tendency to misclassify gas giants as non-gas giants. This is reflected in the lower recall values for class 1 across all models, especially in Logistic Regression and Decision Tree.
+
+This issue can be explained by several factors:
+
+- **Class imbalance**: The dataset contains substantially more non-gas giant examples, causing the model to favor predicting class 0 more often.
+- **Feature overlap**: Many stellar systems that host gas giants share similar stellar characteristics with systems that do not, making separation less distinct in feature space.
+- **Indirect relationship between features and target**: The selected stellar features (such as temperature, radius, metallicity, and age) influence planet formation probabilistically rather than deterministically, which introduces ambiguity into classification.
+
+Among all models, Random Forest reduced this issue the most, likely due to its ability to capture non-linear interactions between features. However, even this model still shows reduced sensitivity toward gas giants compared to the majority class.
+
+Overall, the errors highlight that this is a scientifically realistic classification problem where perfect separation is not expected.
+
+--
+
 ## Limitations
 
 - The dataset contains missing values, reducing usable sample size.
