@@ -86,6 +86,19 @@ Planetary features such as planet radius were intentionally excluded from the fe
 Instead, the model focuses on stellar properties that influence planet formation indirectly, making the prediction task more scientifically meaningful and closer to real-world discovery scenarios.
 
 --
+## Class Imbalance Handling
+
+The dataset exhibited a moderate class imbalance, with approximately 4386 non-gas giant planets (class 0) and 1439 gas giant planets (class 1). This imbalance can bias machine learning models toward predicting the majority class more frequently, leading to misleading accuracy scores.
+
+To address this, model evaluation was focused not only on accuracy but also on precision, recall, and F1-score, particularly for the minority class (gas giants). This ensured that model performance was assessed in a more balanced and realistic way.
+
+In addition, experiments were conducted using class-weight adjustments in models such as Random Forest and Logistic Regression. The `class_weight="balanced"` parameter was considered to penalize misclassification of the minority class more heavily, improving sensitivity toward gas giant detection.
+
+Although resampling techniques such as oversampling or undersampling were not applied in this version of the project, they are recognized as potential improvements for future iterations.
+
+Overall, this approach helped mitigate bias toward the majority class while maintaining interpretability and simplicity in the modeling pipeline.
+
+--
 
 ## Data Leakage Prevention
 
