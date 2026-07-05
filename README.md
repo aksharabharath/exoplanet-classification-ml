@@ -77,6 +77,53 @@ These features were selected because they directly influence planet formation th
 
 ---
 
+## Data Leakage Prevention and Experimental Rigor
+
+One of the most important considerations in building a reliable machine learning model is ensuring that no information from the test set is used during training. This project was designed to strictly avoid data leakage at every stage of the pipeline.
+
+### Train-Test Split Strategy
+
+The dataset was split into training and testing sets **before any scaling or model training was performed**. This ensures that statistical properties of the test set do not influence the training process.
+
+All preprocessing steps such as scaling and missing value handling were applied using parameters derived only from the training set.
+
+### Scaling and Preprocessing Safety
+
+Feature scaling (where applicable) was fit only on the training data and then applied to the test set using the same transformation. This prevents any leakage of distributional information from the test set into the training process.
+
+### Model Training Integrity
+
+All models were trained exclusively on the training dataset, and performance evaluation was conducted only on the held-out test set. No test data was used during feature selection, tuning, or preprocessing decisions.
+
+### Random State Consistency
+
+To ensure reproducibility, a fixed random state was used across:
+- train-test splitting
+- model initialization (Logistic Regression, Decision Tree, Random Forest)
+
+This ensures that results are stable and can be replicated exactly under the same environment.
+
+### Summary
+
+These steps ensure that all reported results reflect true generalization performance rather than artificially inflated accuracy due to data leakage or inconsistent experimental setup.
+
+--
+
+## Machine Learning Pipeline Overview
+
+The project follows a structured end-to-end machine learning pipeline:
+
+1. Data Loading (NASA Exoplanet Archive)
+2. Initial Exploration and Cleaning
+3. Feature Selection (stellar parameters)
+4. Train-Test Split (before preprocessing)
+5. Feature Scaling (fit on training set only)
+6. Model Training (Logistic Regression, Decision Tree, Random Forest)
+7. Model Evaluation (test set only)
+8. Performance Comparison and Interpretation
+
+--
+
 ## Class Imbalance & Dataset Bias
 
 ### Class Imbalance
