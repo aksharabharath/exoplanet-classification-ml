@@ -166,6 +166,21 @@ These findings are consistent with astrophysical theories that link metallicity 
 
 ---
 
+## Model Performance Summary
+
+The following table compares the performance of different classification models used in this project:
+
+| Model               | Accuracy | Precision (Class 1) | Recall (Class 1) | F1-score (Class 1) |
+|--------------------|----------|---------------------|------------------|---------------------|
+| Logistic Regression| ~0.76    | ~0.60               | ~0.26            | ~0.36               |
+| Decision Tree      | ~0.79    | ~0.67               | ~0.27            | ~0.38               |
+| Random Forest      | ~0.84    | ~0.76               | ~0.54            | ~0.63               |
+
+### Key Observation
+Random Forest performed the best overall, particularly in identifying gas giants (class 1), due to its ability to capture non-linear relationships between stellar features.
+
+--
+
 ## Conclusion
 
 This project demonstrates that machine learning can be used to identify patterns between stellar properties and the likelihood of hosting gas giant planets.
