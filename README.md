@@ -67,6 +67,18 @@ The project follows a standard machine learning pipeline:
 
 ---
 
+## Data Leakage Prevention
+
+To ensure the model evaluation was realistic and not overly optimistic, careful steps were taken to avoid data leakage.
+
+First, the dataset was split into training and testing sets before any preprocessing steps that could introduce information from the test set into the training process. This ensures that the model does not learn patterns from unseen data during training.
+
+Second, only selected stellar features were used for prediction (`st_teff`, `st_rad`, `st_met`, `st_age`). Planet-specific attributes such as radius and orbital characteristics were excluded from the feature set to prevent indirect leakage of target-related information.
+
+Finally, all transformations and model training steps were performed strictly within the training dataset, and evaluation was done exclusively on the held-out test set. This helps ensure that performance metrics reflect true generalization ability rather than memorization.
+
+--
+
 ## Model Comparison
 
 | Model                 | Accuracy | Strengths                          | Weaknesses                          |
