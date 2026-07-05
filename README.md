@@ -67,6 +67,26 @@ The project follows a standard machine learning pipeline:
 
 ---
 
+## Feature Selection and Justification
+
+The final model uses four stellar features: `st_teff` (stellar effective temperature), `st_rad` (stellar radius), `st_met` (stellar metallicity), and `st_age` (stellar age).
+
+These features were selected because they are physically meaningful and have strong connections to planet formation and classification.
+
+- **Stellar effective temperature (`st_teff`)**: This helps describe the type of star. Different stellar temperatures are associated with different stellar classes, which can influence the likelihood of certain types of planets forming or being detectable.
+
+- **Stellar radius (`st_rad`)**: The size of the star affects gravitational interactions and observational signals such as transit depth. Larger stars can make it harder to detect smaller planets, which indirectly affects the observed distribution of planet types.
+
+- **Stellar metallicity (`st_met`)**: Metallicity is one of the most important factors in planet formation. Higher metallicity stars tend to have a greater abundance of heavy elements, which increases the probability of forming gas giants.
+
+- **Stellar age (`st_age`)**: The age of a star system provides information about its evolutionary stage. Older systems may have more dynamically evolved planetary architectures.
+
+Planetary features such as planet radius were intentionally excluded from the feature set to avoid trivial classification. Since the goal is to predict whether a planet is a gas giant, using planet radius directly would leak target-related information and make the problem unrealistic.
+
+Instead, the model focuses on stellar properties that influence planet formation indirectly, making the prediction task more scientifically meaningful and closer to real-world discovery scenarios.
+
+--
+
 ## Data Leakage Prevention
 
 To ensure the model evaluation was realistic and not overly optimistic, careful steps were taken to avoid data leakage.
