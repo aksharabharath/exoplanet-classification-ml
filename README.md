@@ -100,6 +100,26 @@ Overall, this approach helped mitigate bias toward the majority class while main
 
 --
 
+## Dataset Bias and Limitations
+
+This dataset is derived from real astronomical observations, which introduces several inherent biases that affect model performance and interpretation.
+
+### Detection Bias
+Exoplanets are not observed uniformly. Larger planets, particularly gas giants, are significantly easier to detect using methods such as transit photometry and radial velocity. As a result, the dataset is likely overrepresented by planets that are easier to observe, rather than a truly random sample of all existing exoplanets.
+
+### Observational Selection Effects
+The dataset reflects limitations of current detection technologies. Certain types of planets (e.g., smaller Earth-like planets or those farther from their host stars) are underrepresented due to detection difficulty. This introduces a selection bias that influences the distribution of classes in the dataset.
+
+### Missing Data Not at Random
+Many features in the dataset contain missing values. However, these missing values are not random; they often occur because certain measurements are only possible for specific types of systems or observational conditions. This means that the absence of data itself may carry implicit information about the system.
+
+### Impact on Model Performance
+These biases limit the model’s ability to generalize beyond the observed dataset. While the model performs well on available data, it is important to recognize that predictions are influenced by the constraints of how the data was collected.
+
+Overall, these limitations highlight that this is a scientifically realistic dataset, and model performance should be interpreted in the context of observational astronomy constraints rather than purely statistical assumptions.
+
+--
+
 ## Data Leakage Prevention
 
 To ensure the model evaluation was realistic and not overly optimistic, careful steps were taken to avoid data leakage.
