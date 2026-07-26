@@ -1,0 +1,12 @@
+{
+    "target_name": "is_gas_giant",
+    "target_type": "binary classification",
+    "positive_class": "Planetary radius > 6.0 Earth radii",
+    "negative_class": "Planetary radius <= 6.0 Earth radii",
+    "radius_column": "pl_rade",
+    "radius_unit": "Earth radii",
+    "threshold": 6.0,
+    "threshold_rule": "greater_than",
+    "target_is_proxy": true,
+    "target_proxy_description": "A radius-based operational proxy for gas giant status; not a definitive compositional classification."
+}

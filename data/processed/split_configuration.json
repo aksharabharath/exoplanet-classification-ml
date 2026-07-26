@@ -1,0 +1,15 @@
+{
+    "random_state": 42,
+    "test_size": 0.2,
+    "train_size": 0.8,
+    "stratified": true,
+    "features": [
+        "st_teff",
+        "st_rad",
+        "st_met"
+    ],
+    "target": "is_gas_giant",
+    "n_observations_before_split": 27540,
+    "n_training_observations": 22032,
+    "n_testing_observations": 5508
+}
